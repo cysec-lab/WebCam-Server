@@ -22,15 +22,10 @@ rcp cgi-bin/* "$host":$apache_dir/cgi-bin/ && rcp backup/* "$host":$apache_dir/b
 
 # target.txtのコピーと編集
 rcp target.txt "$host":/home/pi
+rcp IPtoTarget.sh "$host":/home/pi
 
-# target.txtの編集
-rsh "$host" '
-    IP_ADDRESS=$(hostname -I | awk "{print \$1}")
-    HOST_PART=$(echo $IP_ADDRESS | cut -d. -f4)
-    NEW_HOST_PART="1000${HOST_PART}"
-    sed -i "2s/.*/${NEW_HOST_PART}/" /home/pi/target.txt
-    sed -i "3s/.*/${NEW_HOST_PART}/" /home/pi/target.txt
-'
+#IPアドレスをもとにtarget.txtを修正
+rsh "$host" 'sudo chmod +x /home/pi/IPtoTarget.sh && sudo bash /home/pi/IPtoTarget.sh'
 
 # target.txtの移動
 rsh "$host" 'cp /home/pi/target.txt $apache_dir/cgi-bin/ && cp /home/pi/target.txt $apache_dir/backup/'
