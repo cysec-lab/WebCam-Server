@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# コピー先のディレクトリを定義
+cgi_bin_dir="cgi-bin"
+backup_dir="backup"
+
+# cgi-binディレクトリが存在しない場合は作成
+if [ ! -d "$cgi_bin_dir" ]; then
+    mkdir "$cgi_bin_dir"
+fi
+
+# backupディレクトリが存在しない場合は作成
+if [ ! -d "$backup_dir" ]; then
+    mkdir "$backup_dir"
+fi
+
+# ファイルをコピー
+cp bin/* "$cgi_bin_dir"
+cp bin/* "$backup_dir"
+cp htdocs/* "$backup_dir"
+cp version.txt "$cgi_bin_dir"
+cp version.txt "$backup_dir"
+
 # Apache2のインストール
 sudo apt-get update
 sudo apt-get install -y apache2
