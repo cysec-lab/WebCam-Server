@@ -1,5 +1,10 @@
-#!/bin/bash
 
+
+#genset.sh
+#getip.shを実行し、その結果をもとに設定ファイルを生成する
+
+#!/bin/bash
+#サーバー証明書用スクリプト完成後修正
 # For Server Program
 
 # 出力するファイル

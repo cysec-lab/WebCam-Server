@@ -25,12 +25,15 @@ sudo mkdir -p /var/www/html/db
 sudo mkdir -p /var/www/html/files
 sudo mkdir -p /var/www/html/downloads
 
+# htmlディレクトリからファイルを/var/www/htmlへコピー
+sudo cp html/* /var/www/html
+
 # Serverディレクトリからupdatefile.tar.gzを/var/www/html/downloadsへコピー
 sudo cp Server/updatefile.tar.gz /var/www/html/downloads
 sudo cp FakeServer/updatefile.tar.gz /var/www2/html/downloads
 
-# htmlディレクトリからファイルを/var/www/htmlへコピー
-sudo cp html/* /var/www/html
+# 権限設定
+sudo chown -R www-data:www-data /var/www/html
 
 # SQLite3を使用してcamera.dbを作成し、cameraテーブルを作成
 sudo sqlite3 /var/www/html/db/camera.db <<EOF

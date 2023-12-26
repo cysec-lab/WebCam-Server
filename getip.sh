@@ -1,3 +1,4 @@
+#getip.sh
 #!/bin/bash
 # wlan0とwlan1のIPアドレスを取得し、SERVER_ADDRとFAKE_SERVER_ADDRとしてファイルに出力する
 
