@@ -71,6 +71,6 @@ cp "$OUTPUT_FILE" /var/www/html
 sudo chown -R www-data:www-data /var/www/html/setting.txt
 
 # スクリプトの実行が完了したことを示すメッセージ
-echo "********************************************"
-echo "*Settings have been successfully completed.*"
-echo "********************************************"
+echo "****************************************************"
+echo "*Network settings have been successfully completed.*"
+echo "****************************************************"

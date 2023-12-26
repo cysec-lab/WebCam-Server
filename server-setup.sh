@@ -65,6 +65,6 @@ EOF
 sudo chown -R www-data:www-data /var/www/html
 
 # スクリプトの実行が完了したことを示すメッセージ
-echo "***************************************************************"
-echo "*Server-Setup have been successfully installed and configured.*"
-echo "***************************************************************"
+echo "************************************************"
+echo "*Server-Setup have been successfully completed.*"
+echo "************************************************"
