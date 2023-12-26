@@ -32,9 +32,6 @@ sudo cp html/* /var/www/html
 sudo cp Server/updatefile.tar.gz /var/www/html/downloads
 sudo cp FakeServer/updatefile.tar.gz /var/www2/html/downloads
 
-# 権限設定
-sudo chown -R www-data:www-data /var/www/html
-
 # SQLite3を使用してcamera.dbを作成し、cameraテーブルを作成
 sudo sqlite3 /var/www/html/db/camera.db <<EOF
 CREATE TABLE IF NOT EXISTS camera (
@@ -42,6 +39,9 @@ CREATE TABLE IF NOT EXISTS camera (
     password TEXT NOT NULL
 );
 EOF
+
+# 権限設定
+sudo chown -R www-data:www-data /var/www/html
 
 # スクリプトの実行が完了したことを示すメッセージ
 echo "***************************************************************"

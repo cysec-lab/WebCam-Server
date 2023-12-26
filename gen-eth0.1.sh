@@ -26,3 +26,4 @@ sudo ip link add link eth0 address $DESIRED_MAC eth0.1 type macvlan
 
 # eth0.1サブインターフェースをアクティブにする
 sudo ip link set eth0.1 up
+sudo dhclient eth0.1

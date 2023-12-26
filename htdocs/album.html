@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>一般ユーザ用アルバム画面</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="album.js" defer></script>
+  <link rel="icon" href="data:image/x-icon;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+  <header>
+    <h1>見守りカメラ</h1>
+  </header>
+
+  <div id="content">
+    <aside>
+      <h2>メニュー</h2>
+      <ul>
+        <li><a href="index.html">■ カメラ映像</a></li>
+        <li>■ アルバム</li>
+        <li><button id="updateButton" onclick="update()">アップデート</button></li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <button id="resetButton" onclick="resetCamera()">初期化（演習用）</button>
+      </ul>
+    </aside>
+
+    <main>
+      <h2>■ アルバム</h2>
+      <p class="message" id="message"></p>
+      <div class="submenu">
+        写真を撮ってアルバムに追加保存する：
+        <button id="capture-button" onclick="captureImage()">保存</button>
+      </div>
+
+      <div class="submenu">
+        <table id="filelist">
+          <thead>
+            <tr>
+              保存済みの画像一覧（ファイル名をクリックすると画像が見られます）
+            </tr>
+          </thead>
+          <tbody id="image-list">
+          </tbody>
+        </table>
+      </div>
+      
+    </main>
+  </div>
+
+  <footer>
+    <hr>
+    <div id="UserInfo">
+        <p>version: <span id="version"></span></p>
+        <p>IPアドレス: <span id="ip-address"></span></p>
+        <p>User Agent: <span id="user-agent"></span></p>
+    </div>
+  </footer>
+</body>
+
+</html>
