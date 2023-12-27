@@ -23,8 +23,9 @@ openssl req -new -key $PRIVATE_KEY -out $CSR -subj "/CN=$DOMAIN"
 openssl x509 -req -days 1825 -in $CSR -signkey $PRIVATE_KEY -out $CERTIFICATE
 
 # Apache Virtual Hostの設定
-sed -i "s/SSLCertificateFile SSLCertificateFile_PATH/SSLCertificateFile $CERTIFICATE/" 002-trap.conf
-sed -i "s/SSLCertificateKeyFile SSLCertificateKeyFile_PATH/SSLCertificateKeyFile $PRIVATE_KEY/" 002-trap.conf
+sed -i "s|SSLCertificateFile SSLCertificateFile_PATH|SSLCertificateFile $CERTIFICATE|" 002-trap.conf
+sed -i "s|SSLCertificateKeyFile SSLCertificateKeyFile_PATH|SSLCertificateKeyFile $PRIVATE_KEY|" 002-trap.conf
+
 
 # Apache設定の有効化とSSLモジュールの有効化
 #sudo a2ensite 002-trap.conf
@@ -34,5 +35,3 @@ sed -i "s/SSLCertificateKeyFile SSLCertificateKeyFile_PATH/SSLCertificateKeyFile
 #sudo systemctl restart apache2
 
 echo "自己署名証明書の設定が完了しました。"
-
-上記スクリプトはsudo bash で正常に動作するか確認してください。
