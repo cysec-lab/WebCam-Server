@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ネットワーク情報ファイルのパス
-FAKE_SERVER_ADDR=192.168.3.8
+FAKE_SERVER_ADDR=$(ip -o -4 addr show eth0.1 | awk '{print $4}' | cut -d/ -f1)
 
 # Apacheの設定ファイルで不正なのサーバーのIPアドレスを置換
 sed -i "s/FAKE_SERVER_ADDR/$FAKE_SERVER_ADDR/g" 000-default.conf
@@ -30,7 +30,6 @@ sed -i "s|SSLCertificateKeyFile SSLCertificateKeyFile_PATH|SSLCertificateKeyFile
 sudo mv apache2.conf /etc/apache2/apache2.conf
 sudo mv 000-default.conf /etc/apache2/sites-available/000-default.conf
 sudo mv 002-trap.conf /etc/apache2/sites-available/
-
 
 # Apache設定の有効化とSSLモジュールの有効化
 sudo a2ensite 002-trap.conf
