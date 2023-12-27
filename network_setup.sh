@@ -47,22 +47,22 @@ FAKE_SERVER_ADDR=$(ip -f inet addr show $interface_for_fake_server_addr | grep -
 # 出力するファイル
 OUTPUT_FILE="setting.txt"
 
-# 証明書ファイルのパス
+# 証明書ファイルのパス(サーバー証明書の仕組みが完成したら修正)
 #certFile="cert.pem"
 #CN=$(openssl x509 -in "$certFile" -noout -subject | sed -n 's/.*CN = \([^/]*\).*/\1/p')
+
+# ネットワーク情報ファイルのパス
+SERVER_ADDR=$(ip -o -4 addr show eth0 | awk '{print $4}' | cut -d/ -f1)
+FAKE_SERVER_ADDR=$(ip -o -4 addr show eth0.1 | awk '{print $4}' | cut -d/ -f1)
 
 # 設定ファイルの作成
 cat <<EOF > "$OUTPUT_FILE"
 DNS_ADDR=${SERVER_ADDR}
 SERVER_ADDR=${SERVER_ADDR}
-http://${CN}
+http://${SERVER_ADDR}/upload.php
 1000101
 1000101
 EOF
-
-# ネットワーク情報ファイルのパス
-SERVER_ADDR=$(ip -o -4 addr show eth0 | awk '{print $4}' | cut -d/ -f1)
-FAKE_SERVER_ADDR=$(ip -o -4 addr show eth0.1 | awk '{print $4}' | cut -d/ -f1)
 
 sudo mv apache_conf/apache2.conf /etc/apache2/apache2.conf
 sudo mv apache_conf/000-default.conf /etc/apache2/sites-available/000-default.conf
