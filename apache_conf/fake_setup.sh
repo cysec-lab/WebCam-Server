@@ -3,6 +3,9 @@
 # ネットワーク情報ファイルのパス
 source ip_addresses.txt
 
+# Import the sed command
+import sed
+
 # Apacheの設定ファイルで不正なのサーバーのIPアドレスを置換
 sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/" 000-default.conf
 sed -i "s/<VirtualHost FAKE_SERVER_ADDR:443>/<VirtualHost $FAKE_SERVER_ADDR:443>/" 002-trap.conf
@@ -33,7 +36,5 @@ sudo a2enmod ssl
 
 # Apacheの再起動
 sudo systemctl restart apache2
-
-
 
 echo "自己署名証明書の設定が完了しました。"
