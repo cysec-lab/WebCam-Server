@@ -2,7 +2,7 @@
 #サーバー証明書の仕組みが完成したら修正
 
 # 既存のスクリプトのパス
-EXISTING_SCRIPT_PATH="gen-eth0.1.sh"
+EXISTING_SCRIPT_PATH="gen_eth0.1.sh"
 sudo sh "$EXISTING_SCRIPT_PATH"
 # スクリプトの新しいパス
 NEW_SCRIPT_PATH="/usr/local/bin/recreate_eth0.1.sh"
