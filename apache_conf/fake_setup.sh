@@ -4,8 +4,8 @@
 FAKE_SERVER_ADDR=192.168.3.8
 
 # Apacheの設定ファイルで不正なのサーバーのIPアドレスを置換
-sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/" 000-default.conf
-sed -i "s/<VirtualHost FAKE_SERVER_ADDR:443>/<VirtualHost $FAKE_SERVER_ADDR:443>/" 002-trap.conf
+sed -i "s/FAKE_SERVER_ADDR/$FAKE_SERVER_ADDR/g" 000-default.conf
+sed -i "s/FAKE_SERVER_ADDR/$FAKE_SERVER_ADDR/g" 002-trap.conf
 
 # 設定
 DOMAIN="fakeserver.com"
