@@ -27,11 +27,11 @@ sed -i "s/SSLCertificateFile SSLCertificateFile_PATH/SSLCertificateFile $CERTIFI
 sed -i "s/SSLCertificateKeyFile SSLCertificateKeyFile_PATH/SSLCertificateKeyFile $PRIVATE_KEY/" 002-trap.conf
 
 # Apache設定の有効化とSSLモジュールの有効化
-sudo a2ensite 002-trap.conf
-sudo a2enmod ssl
+#sudo a2ensite 002-trap.conf
+#sudo a2enmod ssl
 
 # Apacheの再起動
-sudo systemctl restart apache2
+#sudo systemctl restart apache2
 
 echo "自己署名証明書の設定が完了しました。"
 
