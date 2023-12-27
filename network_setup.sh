@@ -75,7 +75,9 @@ sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/"
 
 # 設定ファイルを/var/www/htmlにコピー
 cp "$OUTPUT_FILE" /var/www/html
-sudo chown -R www-data:www-data /var/www/html/setting.txt
+sudo chown -R www-data:www-data /var/www/html/setting.txt 
+
+sudo systemctl restart apache2
 
 # スクリプトの実行が完了したことを示すメッセージ
 echo "****************************************************"
