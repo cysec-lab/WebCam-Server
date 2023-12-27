@@ -26,8 +26,11 @@ openssl x509 -req -days 1825 -in $CSR -signkey $PRIVATE_KEY -out $CERTIFICATE
 sed -i "s|SSLCertificateFile SSLCertificateFile_PATH|SSLCertificateFile $CERTIFICATE|" 002-trap.conf
 sed -i "s|SSLCertificateKeyFile SSLCertificateKeyFile_PATH|SSLCertificateKeyFile $PRIVATE_KEY|" 002-trap.conf
 
+#一時的
+sudo mv apache2.conf /etc/apache2/apache2.conf
 sudo mv 000-default.conf /etc/apache2/sites-available/000-default.conf
 sudo mv 002-trap.conf /etc/apache2/sites-available/
+
 
 # Apache設定の有効化とSSLモジュールの有効化
 sudo a2ensite 002-trap.conf
