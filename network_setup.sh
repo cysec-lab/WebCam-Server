@@ -60,11 +60,18 @@ http://${CN}
 1000101
 EOF
 
+# ネットワーク情報ファイルのパス
+SERVER_ADDR=$(ip -o -4 addr show eth0 | awk '{print $4}' | cut -d/ -f1)
+FAKE_SERVER_ADDR=$(ip -o -4 addr show eth0.1 | awk '{print $4}' | cut -d/ -f1)
+
+sudo mv apache_conf/apache2.conf /etc/apache2/apache2.conf
+sudo mv apache_conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+
 # Apacheの設定ファイルで正規サーバーのIPアドレスを置換
-#sed -i "s/<VirtualHost SERVER_ADDR:80>/<VirtualHost $SERVER_ADDR:80>/" /etc/apache2/sites-available/000-default.conf
+sed -i "s/<VirtualHost SERVER_ADDR:80>/<VirtualHost $SERVER_ADDR:80>/" /etc/apache2/sites-available/000-default.conf
 
 # Apacheの設定ファイルで不正なサーバーのIPアドレスを置換
-#sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/" /etc/apache2/sites-available/000-default.conf
+sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/" /etc/apache2/sites-available/000-default.conf
 
 # 設定ファイルを/var/www/htmlにコピー
 cp "$OUTPUT_FILE" /var/www/html
