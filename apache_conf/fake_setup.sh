@@ -1,10 +1,7 @@
 #!/bin/bash
 
 # ネットワーク情報ファイルのパス
-source ip_addresses.txt
-
-# Import the sed command
-import sed
+FAKE_SERVER_ADDR=192.168.3.8
 
 # Apacheの設定ファイルで不正なのサーバーのIPアドレスを置換
 sed -i "s/<VirtualHost FAKE_SERVER_ADDR:80>/<VirtualHost $FAKE_SERVER_ADDR:80>/" 000-default.conf
@@ -15,7 +12,6 @@ DOMAIN="fakeserver.com"
 PRIVATE_KEY="/etc/ssl/private/fakeserver.key"
 CERTIFICATE="/etc/ssl/certs/fakeserver.crt"
 CSR="fakeserver.csr"
-APACHE_CONF="/etc/apache2/sites-available/fakeserver.com.conf"
 
 # 秘密鍵の生成
 openssl genrsa -out $PRIVATE_KEY 2048
@@ -31,10 +27,12 @@ sed -i "s/SSLCertificateFile SSLCertificateFile_PATH/SSLCertificateFile $CERTIFI
 sed -i "s/SSLCertificateKeyFile SSLCertificateKeyFile_PATH/SSLCertificateKeyFile $PRIVATE_KEY/" 002-trap.conf
 
 # Apache設定の有効化とSSLモジュールの有効化
-sudo a2ensite fakeserver.com.conf
+sudo a2ensite 002-trap.conf
 sudo a2enmod ssl
 
 # Apacheの再起動
 sudo systemctl restart apache2
 
 echo "自己署名証明書の設定が完了しました。"
+
+上記スクリプトはsudo bash で正常に動作するか確認してください。
