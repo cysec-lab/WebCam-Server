@@ -64,8 +64,8 @@ http://${SERVER_ADDR}/upload.php
 1000101
 EOF
 
-sudo mv apache_conf/apache2.conf /etc/apache2/apache2.conf
-sudo mv apache_conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+sudo cp apache_conf/apache2.conf /etc/apache2/apache2.conf
+sudo cp apache_conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Apacheの設定ファイルで正規サーバーのIPアドレスを置換
 sed -i "s/<VirtualHost SERVER_ADDR:80>/<VirtualHost $SERVER_ADDR:80>/" /etc/apache2/sites-available/000-default.conf
