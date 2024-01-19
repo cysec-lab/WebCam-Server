@@ -32,7 +32,11 @@ $existingEntries = file($file, FILE_IGNORE_NEW_LINES);
 foreach ($existingEntries as $entry) {
     list($existingIP, $existingID) = explode('|', $entry);
     if ($ipAddress === $existingIP) {
-        echo "この端末は既に登録済です。ID: $existingID";
+        echo "$lines[0]\n"
+        echo "$lines[1]\n"
+        echo "$lines[2]\n"
+        echo "$existingID\n";
+        echo "$existingID\n";
         exit;
     }
 }
