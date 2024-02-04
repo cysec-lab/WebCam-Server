@@ -21,7 +21,7 @@ header('Content-Type: text/plain');
 $ipAddress = $_SERVER['REMOTE_ADDR'];
 
 // ip.txtファイルから既存のIPアドレスを読み込み、重複をチェック
-$file = 'ip.txt';
+$file = 'IPAddress_DeviceID_Mapping.txt';
 // ファイルが存在しない場合は新規作成
 if (!file_exists($file)) {
     file_put_contents($file, '');
@@ -32,9 +32,9 @@ $existingEntries = file($file, FILE_IGNORE_NEW_LINES);
 foreach ($existingEntries as $entry) {
     list($existingIP, $existingID) = explode('|', $entry);
     if ($ipAddress === $existingIP) {
-        echo "$lines[0]\n"
-        echo "$lines[1]\n"
-        echo "$lines[2]\n"
+        echo "$lines[0]\n";
+        echo "$lines[1]\n";
+        echo "$lines[2]\n";
         echo "$existingID\n";
         echo "$existingID\n";
         exit;

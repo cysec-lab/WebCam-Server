@@ -8,3 +8,5 @@ sudo sed -i 's/\(example\.com\)\s\+[^ ]\+/\1 192.168.11.13/' /etc/hosts
 
 # dnsmasqの再起動
 sudo systemctl restart dnsmasq
+
+
