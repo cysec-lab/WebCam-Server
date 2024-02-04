@@ -6,6 +6,6 @@ while IFS='|' read -r IP_ADDRESS ID; do
     rsh "$IP_ADDRESS" "sudo shutdown -h now" < /dev/null
 
     #完了メッセージ
-    echo "完了：$host"
+    echo "完了：$IP_ADDRESS"
     
 done < "IPAddress_DeviceID_Mapping.txt"
