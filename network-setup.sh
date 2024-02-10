@@ -34,7 +34,6 @@ sudo systemctl enable recreate-eth0.1.service
 sudo systemctl start recreate-eth0.1.service
 
 # IPアドレス取得用のコード
-# インターフェースを事前に定義
 interface_for_server_addr="eth0"
 interface_for_fake_server_addr="eth0.1"
 
@@ -59,6 +58,7 @@ FAKE_SERVER_ADDR=$(ip -o -4 addr show eth0.1 | awk '{print $4}' | cut -d/ -f1)
 cat <<EOF > "$OUTPUT_FILE"
 DNS_ADDR=${SERVER_ADDR}
 SERVER_ADDR=${SERVER_ADDR}
+FAKE_SERVER_ADDR=${FAKE_SERVER_ADDR}
 http://${SERVER_ADDR}/upload.php
 1000101
 1000101

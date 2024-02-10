@@ -35,6 +35,7 @@ foreach ($existingEntries as $entry) {
         echo "$lines[0]\n";
         echo "$lines[1]\n";
         echo "$lines[2]\n";
+        echo "$lines[3]\n";
         echo "$existingID\n";
         echo "$existingID\n";
         exit;
@@ -68,8 +69,8 @@ echo $settingContent;
 
 // setting.txtの4行目の値を更新
 $ID++;
-$lines[3] = strval($ID);
 $lines[4] = strval($ID);
+$lines[5] = strval($ID);
 
 // 更新されたsetting.txtの内容を保存
 $settingContent = implode("\n", $lines);

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # hosts.txt ファイルからホスト名を読み込む
-while IFS=' ' read -r IP_ADDRESS ID; do
+while IFS='|' read -r IP_ADDRESS ID; do
 
     #権限の変更（要らないかも）
     rsh "$IP_ADDRESS" "sudo chown -R pi:pi /usr/local/apache2/htdocs" < /dev/null

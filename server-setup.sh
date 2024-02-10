@@ -23,7 +23,7 @@ cp version.txt "$backup_dir"
 
 # Apache2のインストール
 sudo apt-get update
-sudo apt-get install -y apache2
+sudo apt-get install -y apache2 openssl
 
 # PHP、Apache2のPHPモジュール、およびPHPのSQLite3拡張のインストール
 sudo apt-get install -y php libapache2-mod-php php-sqlite3
