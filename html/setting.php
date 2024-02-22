@@ -43,7 +43,7 @@ foreach ($existingEntries as $entry) {
 }
 
 // 新しいIDを設定
-$ID = intval($lines[3]);
+$ID = intval($lines[4]);
 
 // テキストファイルにIPアドレスとIDを追記
 $ipIdEntry = $ipAddress . '|' . $ID . PHP_EOL;
