@@ -67,7 +67,7 @@ try {
 // setting.txtファイルの内容を出力
 echo $settingContent;
 
-// setting.txtの4行目の値を更新
+// setting.txtの5.6行目の値を更新
 $ID++;
 $lines[4] = strval($ID);
 $lines[5] = strval($ID);
