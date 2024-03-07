@@ -78,7 +78,7 @@ Raspberry Pi Imagerを開き、「Use custom」を選択して、ダウンロー
    ログイン後、自動的にホーム画面に移動します。ここでは、WebCamから送信された画像を確認できます。
 
 ### 管理者用ツール
-`/home/pi/WebCam-Server/AdminTools/admin.sh`を実行することで以下の操作を行えます。
+`/home/pi/WebCam-Server/AdminTools/admin.sh`を実行することで以下の操作を行えます。<br>
 実行例：`sh admin.sh`<br>
 ・対象のWebCamをIPアドレスで指定して初期化を実行<br>
 ・WebCam全体のHTML、CSS、およびJavaScriptファイルのみ初期化<br>
