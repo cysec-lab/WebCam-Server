@@ -79,9 +79,9 @@ Raspberry Pi Imagerを開き、「Use custom」を選択して、ダウンロー
 
 ### 管理者用ツール
 `/home/pi/WebCam-Server/AdminTools/admin.sh`を実行することで以下の操作を行えます。
-実行例：`sh admin.sh`
-・対象のWebCamをIPアドレスで指定して初期化を実行
-・WebCam全体のHTML、CSS、およびJavaScriptファイルのみ初期化
+実行例：`sh admin.sh`<br>
+・対象のWebCamをIPアドレスで指定して初期化を実行<br>
+・WebCam全体のHTML、CSS、およびJavaScriptファイルのみ初期化<br>
 ・WebCam全体のシャットダウン
 
 - **アップデート機能の使用不可**  
