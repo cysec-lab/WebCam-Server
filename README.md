@@ -15,7 +15,9 @@
 
 ## Raspberry PiにOSをインストールする
 
-まず、Raspberry PiにOSをインストールします。このプロセスには、Raspberry Pi Imagerが必要です。
+Raspberry PiにOSをインストールします。このプロセスには、Raspberry Pi Imagerが必要です。
+
+[サーバー用イメージファイル一時保管場所](https://github.com/RyoIHA/Server-Image)
 
 ### Raspberry Pi Imagerの使用方法
 
